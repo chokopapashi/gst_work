@@ -22,6 +22,14 @@ int main(int argc, char *argv[]) {
 		return -1;
 	}
 
+	/* Build the pipeline */
+	gst_bin_add_many(GST_BIN(pipeline), source, sink, NULL);
+	if(gst_element_link(source, sink) != TRUE) {
+		g_printerr("Elements could not be linked.\n");
+		gst_object_unref(pipeline);
+		return -1;
+	}
+
 	/* Modify the source's properties */
 	g_object_set(source, "pattern", 0, NULL);
 
