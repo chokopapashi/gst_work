@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	/* Modify the source's properties */
-	g_object_set(source, "pattern", 0, NULL);
+	g_object_set(source, "pattern", 18, NULL);
 
 	/* Start playing */
 	ret = gst_element_set_state(pipeline, GST_STATE_PLAYING);
