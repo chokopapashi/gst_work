@@ -1,0 +1,5 @@
+
+gst-launch-1.0 -v videotestsrc do-timestamp=true pattern=ball ! video/x-raw,format=I420 ! queue ! imxvpuenc_h264 ! video/x-h264,stream-format=byte-stream,alignment=nal ! rtph264pay pt=99 ! udpsink host=192.168.1.13 port=5001
+
+
+
