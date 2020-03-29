@@ -127,7 +127,10 @@ create_ui (CustomData * data)
       G_CALLBACK (delete_event_cb), data);
 
   video_window = gtk_drawing_area_new ();
+  /* a warning ignore so gtk_widget_set_double_buffered() is deprecated */
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_widget_set_double_buffered (video_window, FALSE);
+  G_GNUC_END_IGNORE_DEPRECATIONS
   g_signal_connect (video_window, "realize", G_CALLBACK (realize_cb), data);
   g_signal_connect (video_window, "draw", G_CALLBACK (draw_cb), data);
 
